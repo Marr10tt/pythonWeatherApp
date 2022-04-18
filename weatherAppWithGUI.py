@@ -6,6 +6,8 @@ import requests
 from tkinter import messagebox
 from tkinter.ttk import *
 
+import requests
+
 ##API and location data##
 userAPI = ('e435fe87b015546cf0e0ee1228b79dd4')
 location = ('doncaster')
@@ -34,14 +36,15 @@ cityWindSpeed = str(cityWindSpeed)
 
 ##update weather function##
 def weatherUpdate():
-    cTempLabel = Label(wethWindow, text = ("current temperature: "+(cityTemp[:4]+"ºC"))).place(relx = 0.5, rely = 0.3, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
-    cFeelLabel = Label(wethWindow, text = ("It currently feels like: "+(cityTempFeelsLike[:4]+"ºC"))).place(relx = 0.5, rely = 0.4, relwidth = 0.9, relheigh = 0.1, anchor = CENTER)
+    cTempLabel = Label(wethWindow, text = ("current temperature: "+(cityTemp[:4]+"C"))).place(relx = 0.5, rely = 0.3, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
+    cFeelLabel = Label(wethWindow, text = ("It currently feels like: "+(cityTempFeelsLike[:4]+"C"))).place(relx = 0.5, rely = 0.4, relwidth = 0.9, relheigh = 0.1, anchor = CENTER)
     cHumidity = Label(wethWindow, text = ("The current humidity is: "+(cityHumidity))).place(relx = 0.5, rely = 0.5, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
     cDescLabel = Label(wethWindow, text = ("The current weather is: "+(cityWeatherDescription))).place(relx = 0.5, rely = 0.6, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
     cWindSpeed = Label(wethWindow, text = ("The current wind speed is: "+(cityWindSpeed+"mph"))).place(relx = 0.5, rely = 0.7, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
 
 ##window declaration##
 wethWindow = tkinter.Tk()
+wethWindow.minsize(250, 250)
 
 ##font declaration##
 myfont = font.Font(family = 'Helvetica')
@@ -50,15 +53,15 @@ myfont = font.Font(family = 'Helvetica')
 wethWindow.title("Current Weather")
 wethWindow.geometry("400x400")
 wethWindow.configure(bg = 'light blue')
-cTempLabel = Label(wethWindow, text = ("current temperature: "+(cityTemp[:4]+"ºC"))).place(relx = 0.5, rely = 0.3, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
-cFeelLabel = Label(wethWindow, text = ("It currently feels like: "+(cityTempFeelsLike[:4]+"ºC"))).place(relx = 0.5, rely = 0.4, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
+cTempLabel = Label(wethWindow, text = ("current temperature: "+(cityTemp[:4]+"C"))).place(relx = 0.5, rely = 0.3, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
+cFeelLabel = Label(wethWindow, text = ("It currently feels like: "+(cityTempFeelsLike[:4]+"C"))).place(relx = 0.5, rely = 0.4, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
 cHumidity = Label(wethWindow, text = ("The current humidity is: "+(cityHumidity))).place(relx = 0.5, rely = 0.5, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
 cDescLabel = Label(wethWindow, text = ("The current weather is: "+(cityWeatherDescription))).place(relx = 0.5, rely = 0.6, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
 cWindSpeed = Label(wethWindow, text = ("The current wind speed is: "+(cityWindSpeed+"mph"))).place(relx = 0.5, rely = 0.7, relwidth = 0.9, relheight = 0.1, anchor = CENTER)
 
 ##update button##
 updateButton = tkinter.Button(wethWindow, text="update forecast", font = myfont, bd = 7, fg = 'blue', activeforeground = 'red', height = 2, command = weatherUpdate)
-updateButton.place(relx = 0.5, rely = 0.8, anchor = CENTER)
+updateButton.place(relx = 0.5, rely = 0.85, anchor = CENTER)
 
 ##program run function##
 mainloop()
